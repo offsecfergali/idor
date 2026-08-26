@@ -1,0 +1,2 @@
+const orders={10021:{owner:'alice',total:178,status:'Delivered'},10022:{owner:'bob',total:329,status:'Processing'},10023:{owner:'alice',total:138,status:'Shipped'}};
+export async function GET(req,{params}){const {id}=await params;const order=orders[id];if(!order)return Response.json({error:'Order not found'},{status:404});return Response.json({order_number:id,total:order.total,status:order.status,owner:order.owner});}
